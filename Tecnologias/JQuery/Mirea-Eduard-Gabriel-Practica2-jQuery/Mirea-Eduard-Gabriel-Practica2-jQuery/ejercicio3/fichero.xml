@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+    <item>
+        <titulo>Ejemplo 1</titulo>
+        <descripcion>Descripción del primer ejemplo.</descripcion>
+    </item>
+    <item>
+        <titulo>Ejemplo 2</titulo>
+        <descripcion>Descripción del segundo ejemplo.</descripcion>
+    </item>
+    <item>
+        <titulo>Ejemplo 3</titulo>
+        <descripcion>Descripción del tercer ejemplo.</descripcion>
+    </item>
+</items>

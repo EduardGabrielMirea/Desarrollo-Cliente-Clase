@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Menu Navideño</h1>
+    <main>
+        <form id="miFormulario">
+            <div id="entrantes">
+                <h2>Entrantes</h2>
+                <label for="jamon">Jamón</label>    
+                <input type="checkbox" name="jamon" id="jamon">
+                <label for="ensalada">Ensalada</label>    
+                <input type="checkbox" name="ensalada" id="ensalada">
+            </div>
+            <div class="segundo-plato">
+                <h2>segundo-plato</h2>
+                <div class="form-group">
+                  <span class="opcion-radio">
+                    <input type="radio" id="comida_mexicana" name="tipo_comida">
+                    <label for="comida_mexicana">Mexicana</label>
+                  </span>
+                  
+                  <span class="opcion-radio">
+                    <input type="radio" id="comida_italiana" name="tipo_comida"><label for="comida_italiana">Italiana</label>
+                  </span>
+                </div>
+            </div>
+            <div id="botonera">
+              <button type="submit" id="TotalPresupuesto">Total Presupuesto</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

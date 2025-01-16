@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js"></script>
+    <title>Formulario</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Formulario</h1>
+    </header>
+
+    <main>
+        <form id="miFormulario">
+
+            <section>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" tabindex="0">
+            </section>
+
+            <section>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos">
+            </section>
+
+            <section>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono">
+            </section>
+
+            <section>
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+            </section>
+
+            <section>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad">
+            </section>
+
+            <section>
+                <fieldset>
+                    <legend>Sexo:</legend>
+                    <input type="radio" id="hombre" name="sexo" value="hombre">
+                    <label for="hombre">Hombre</label>
+                    <input type="radio" id="mujer" name="sexo" value="mujer">
+                    <label for="mujer">Mujer</label>
+                </fieldset>
+            </section>
+
+            <section>
+                <label for="foto">Incluir mi foto:</label>
+                <input type="file" id="foto" name="foto">
+            </section>
+
+            <section>
+                <input type="checkbox" id="publicidad" name="publicidad">
+                <label for="publicidad">Enviar publicidad</label>
+            </section>
+
+            <section>
+                <label for="aficiones">Elige tu afición favorita:</label>
+                <select id="aficiones" name="aficiones">
+                    <option value="musica">Música</option>
+                    <option value="lectura">Lectura</option>
+                    <option value="deporte">Deporte</option>
+                </select>
+            </section>
+
+            <section>
+                <label for="observaciones">Observaciones:</label><br>
+                <textarea id="observaciones" name="observaciones" maxlength="150" rows="4" cols="50"></textarea>
+            </section>
+
+            <section>
+                <button type="submit">Guardar cambios</button>
+                <button type="reset">Borrar los datos introducidos</button>
+            </section>
+
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+
+</html>

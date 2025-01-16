@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="plugin.js"></script> <!-- El plugin que vamos a crear -->
+    <style>
+        .gallery {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .controls button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Casillas de entrada para que el usuario configure la galería -->
+    <div>
+        <label for="transition-time">Tiempo de transición (ms):</label>
+        <input type="number" id="transition-time" value="500"><br>
+
+        <label for="image-width">Ancho de las imágenes (px):</label>
+        <input type="number" id="image-width" value="600"><br>
+
+        <label for="show-controls">Mostrar controles:</label>
+        <input type="checkbox" id="show-controls" checked><br>
+
+        <button id="apply-settings">Aplicar Configuración</button>
+    </div>
+
+    <br>
+
+    <!-- Galería de imágenes -->
+    <div class="gallery">
+        <img src="https://cdn.pixabay.com/photo/2025/01/13/19/40/horse-9331340_1280.jpg" alt="Imagen 1">
+        <img src="https://cdn.pixabay.com/photo/2024/12/31/01/02/costa-rica-9301364_640.jpg" alt="Imagen 2">
+        <img src="https://cdn.pixabay.com/photo/2025/01/07/16/54/woman-9317323_640.jpg" alt="Imagen 3">
+        <div class="controls">
+            <button class="prev">Prev</button>
+            <button class="next">Next</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Inicialización de la galería con valores predeterminados
+            var gallery = $('.gallery').imageGallery({
+                transitionTime: 500, // Tiempo de transición predeterminado
+                showControls: true,  // Mostrar controles por defecto
+                imageWidth: 600      // Ancho de las imágenes predeterminado
+            });
+
+            // Función para aplicar la configuración de la galería según los campos de entrada
+            $('#apply-settings').click(function() {
+                var transitionTime = $('#transition-time').val();
+                var imageWidth = $('#image-width').val();
+                var showControls = $('#show-controls').is(':checked');
+
+                // Aplicar la nueva configuración
+                gallery.imageGallery({
+                    transitionTime: parseInt(transitionTime), // Convertir el valor a entero
+                    imageWidth: parseInt(imageWidth), // Convertir el valor a entero
+                    showControls: showControls // Usar el valor booleano
+                });
+            });
+        });
+    </script>
+</body>
+</html>

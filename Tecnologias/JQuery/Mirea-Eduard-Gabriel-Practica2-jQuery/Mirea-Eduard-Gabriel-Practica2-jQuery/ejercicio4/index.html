@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Parámetros con $.post</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <h1>Enviar parámetros a un fichero PHP</h1>
+
+    <form id="paramForm">
+        <label for="param1">Parámetro 1:</label>
+        <input type="text" id="param1" name="param1" placeholder="Introduce el parámetro 1"><br><br>
+
+        <label for="param2">Parámetro 2:</label>
+        <input type="text" id="param2" name="param2" placeholder="Introduce el parámetro 2"><br><br>
+
+        <button type="button" id="enviarParametros">Enviar</button>
+    </form>
+
+    <div id="resultado" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+        <!-- Aquí se mostrará el resultado devuelto por el PHP -->
+    </div>
+</body>
+</html>

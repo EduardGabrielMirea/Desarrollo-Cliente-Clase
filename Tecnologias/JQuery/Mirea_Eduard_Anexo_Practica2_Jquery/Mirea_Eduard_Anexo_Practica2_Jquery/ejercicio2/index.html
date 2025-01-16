@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX con Carga Lenta</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <style>
+        #contenedor {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        #loading {
+            display: none;
+            margin: 20px;
+        }
+        #error {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cargar Fecha del Sistema con AJAX</h1>
+    <button id="cargar">Cargar Fecha</button>
+    <img id="loading" src="https://i.gifer.com/ZZ5H.gif" alt="Cargando..." width="50">
+    <div id="contenedor">
+        Aquí se mostrará la fecha y hora del sistema.
+    </div>
+    <div id="error"></div>
+</body>
+</html>
