@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Plugin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="shoppingCartPlugin.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+        }
+
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cart-actions button {
+            margin-right: 5px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart Example</h1>
+
+    <div id="products">
+        <div class="product" data-id="1" data-name="Product A" data-price="15.99">
+            <h3>Product A</h3>
+            <p>Price: $15.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="2" data-name="Product B" data-price="25.49">
+            <h3>Product B</h3>
+            <p>Price: $25.49</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <div id="cart" class="cart">
+        <h2>Shopping Cart</h2>
+        <ul class="cart-items">
+            <!-- Cart items will appear here -->
+        </ul>
+        <div class="cart-actions">
+            <button id="add-item">Add Item</button>
+            <button id="clear-cart">Clear Cart</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const $cart = $('#cart').shoppingCart({
+                currency: '$',
+                onItemAdded: function (item) {
+                    $('.cart-items').append(
+                        `<li class="cart-item" data-id="${item.id}">
+                            <span>${item.name} (${item.quantity} x ${item.price})</span>
+                            <button class="remove-item">Remove</button>
+                        </li>`
+                    );
+                },
+                onCartUpdated: function (cart) {
+                    console.log('Cart updated:', cart);
+                }
+            });
+
+            const cartAPI = $cart.data('shoppingCart');
+
+            // Add item on button click
+            $('#add-item').on('click', function () {
+                cartAPI.addItem(Date.now(), 'Sample Product', 9.99, 1).catch(error => console.error(error));
+            });
+
+            // Add predefined product to cart
+            $('.add-to-cart').on('click', function () {
+                const $product = $(this).closest('.product');
+                const id = $product.data('id');
+                const name = $product.data('name');
+                const price = $product.data('price');
+                cartAPI.addItem(id, name, price, 1).catch(error => console.error(error));
+            });
+
+            // Clear cart on button click
+            $('#clear-cart').on('click', function () {
+                cartAPI.clearCart().then(() => $('.cart-items').empty());
+            });
+
+            // Remove specific item
+            $(document).on('click', '.remove-item', function () {
+                const itemId = $(this).closest('.cart-item').data('id');
+                cartAPI.removeItem(itemId)
+                    .then(() => $(this).closest('.cart-item').remove())
+                    .catch(error => console.error(error));
+            });
+        });
+    </script>
+</body>
+</html>
