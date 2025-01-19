@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Acordeón con jQuery UI</title>
+    <!-- Enlaces a las librerías de jQuery y jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #acordeon {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo de Widget Acordeón</h1>
+    <div id="acordeon">
+        <h3>Sección 1</h3>
+        <div>
+            <p>Contenido de la primera sección. Aquí puedes añadir texto, imágenes o cualquier tipo de contenido HTML.</p>
+        </div>
+        <h3>Sección 2</h3>
+        <div>
+            <p>Contenido de la segunda sección. Este formato es ideal para organizar información de forma compacta.</p>
+        </div>
+        <h3>Sección 3</h3>
+        <div>
+            <p>Contenido de la tercera sección. Los usuarios pueden expandir o colapsar cada sección a su gusto.</p>
+        </div>
+    </div>
+
+    <script>
+        // Inicialización del widget Acordeón
+        $(function () {
+            $("#acordeon").accordion({
+                collapsible: true, // Permite colapsar todas las secciones
+                heightStyle: "content" // Ajusta el alto al contenido
+            });
+        });
+    </script>
+</body>
+</html>
