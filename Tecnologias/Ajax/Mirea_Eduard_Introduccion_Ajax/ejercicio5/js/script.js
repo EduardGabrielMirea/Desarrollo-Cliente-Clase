@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded",function () {
     var button = document.getElementById("loadJS");
-    var contentDiv = document.getElementById("content");
 
     button.addEventListener("click",function () {
        const xhr = new XMLHttpRequest();
