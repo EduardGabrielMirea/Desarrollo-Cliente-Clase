@@ -10,7 +10,7 @@ try{
 $pdo = new PDO(
     'mysql:host=localhost;dbname=clase;charset=utf8',  // DSN
         'root',                                         // Nombre de usuario
-        'sa',                                           // Contraseña
+        '',                                           // Contraseña
         $opciones                                        // Opciones adicionales
 );
 }catch (PDOException $e) {
