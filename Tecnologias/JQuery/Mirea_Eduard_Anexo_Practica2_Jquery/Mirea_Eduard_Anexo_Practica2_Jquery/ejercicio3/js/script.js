@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('#cargar-js').on('click', function () {
         // Realiza la solicitud AJAX para cargar el archivo JS
         $.ajax({
-            url: 'prueba.js', // Ruta al archivo JS
+            url: 'js/prueba.js', // Ruta al archivo JS
             method: 'GET',
             dataType: 'script' // Especifica que el contenido es JavaScript
         })
