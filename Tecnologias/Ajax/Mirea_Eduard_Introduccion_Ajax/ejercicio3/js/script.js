@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded",function () {
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
+
                     var imgURL = URL.createObjectURL(xhr.response);
+                    
                     document.getElementById("imagen").src = imgURL;
 
                     document.getElementById("imagen").onload = function () {
