@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Datos del Alumno y Curso</title>
-    <script src="script.js"></script> <!-- Archivo JavaScript compilado -->
+    <title>Datos del Alumno</title>
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Mostrar Datos del Alumno y Curso</h1>
-
-    <button onclick="mostrarDatosConCurso()">Mostrar Datos</button>
-
+    <main>
+        <header>
+            <h1>Datos del Alumno</h1>
+        </header>
+        <section>
+            <button id="mostrar-datos-alumno">Mostrar Datos</button>
+        </section>
+        <section aria-labelledby="informacion-titulo">
+            <h2 id="informacion-titulo">Información del Alumno:</h2>
+            <div id="resultado" aria-live="polite"></div>
+        </section>
+    </main>
 </body>
 </html>

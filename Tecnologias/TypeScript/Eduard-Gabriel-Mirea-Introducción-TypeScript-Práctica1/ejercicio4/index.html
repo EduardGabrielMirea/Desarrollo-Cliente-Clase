@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos del Alumno</title>
-    <script src="script.js"></script> <!-- Archivo JavaScript compilado -->
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Datos del Alumno</h1>
-
-    <button onclick="mostrarDatosAlumno()">Mostrar Datos</button>
-
-    <h2>Información del Alumno:</h2>
-    <div id="resultado"></div>
-
+    <main>
+        <header>
+            <h1>Datos del Alumno</h1>
+        </header>
+        <section>
+            <button id="mostrar-datos-alumno">Mostrar Datos</button>
+        </section>
+        <section aria-labelledby="informacion-titulo">
+            <h2 id="informacion-titulo">Información del Alumno:</h2>
+            <div id="resultado" aria-live="polite"></div>
+        </section>
+    </main>
 </body>
 </html>

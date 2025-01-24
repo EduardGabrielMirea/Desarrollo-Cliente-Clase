@@ -1,26 +1,21 @@
-// Función para calcular el IVA y el precio total
-function calcularIVA() {
-    // Obtener el precio del artículo desde el input
-    var precio = parseFloat(document.getElementById("precio").value);
-    // Verificar si el precio es un número válido
-    if (isNaN(precio) || precio <= 0) {
-        alert("Por favor, ingresa un precio válido.");
-        return;
+document.addEventListener("DOMContentLoaded", function () {
+    function calcularIVA() {
+        var precioInput = document.getElementById("precio");
+        var resultadoDiv = document.getElementById("resultado");
+        if (!precioInput || !resultadoDiv) {
+            console.error("No se encontraron los elementos requeridos.");
+            return;
+        }
+        var precio = parseFloat(precioInput.value);
+        if (isNaN(precio) || precio <= 0) {
+            alert("Por favor, ingresa un precio válido.");
+            return;
+        }
+        var iva = 0.21;
+        var montoIVA = precio * iva;
+        var precioTotal = parseFloat((precio + montoIVA).toFixed(2));
+        resultadoDiv.innerHTML = "\n            <p>Precio sin IVA: <strong>".concat(precio.toFixed(2), " \u20AC</strong></p>\n            <p>IVA (21%): <strong>").concat(montoIVA.toFixed(2), " \u20AC</strong></p>\n            <p>Precio total con IVA: <strong>").concat(precioTotal, " \u20AC</strong></p>\n        ");
     }
-    // Definir el porcentaje de IVA (por ejemplo, 21%)
-    var iva = 0.21;
-    // Calcular el IVA
-    var montoIVA = precio * iva;
-    // Calcular el precio total con el IVA incluido
-    var precioTotal = precio + montoIVA;
-    // Redondear el precio total a 2 decimales
-    precioTotal = parseFloat(precioTotal.toFixed(2));
-    // Mostrar los resultados
-    var resultadoDiv = document.getElementById("resultado");
-    if (resultadoDiv) {
-        resultadoDiv.innerHTML =
-            "Precio sin IVA: ".concat(precio.toFixed(2), " \u20AC<br>") +
-                "IVA (21%): ".concat(montoIVA.toFixed(2), " \u20AC<br>") +
-                "Precio total con IVA: ".concat(precioTotal, " \u20AC");
-    }
-}
+    var botonCalcular = document.getElementById("calcular-iva");
+    botonCalcular === null || botonCalcular === void 0 ? void 0 : botonCalcular.addEventListener("click", calcularIVA);
+});

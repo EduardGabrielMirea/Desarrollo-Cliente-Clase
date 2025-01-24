@@ -1,31 +1,36 @@
-// Clase Alumno
-class Alumno {
-    // Propiedades
-    nombre: string;
-    edad: number;
-    curso: string;
+document.addEventListener("DOMContentLoaded", () => {
+    class Alumno {
+        nombre: string;
+        edad: number;
+        curso: string;
 
-    // Constructor para inicializar las propiedades
-    constructor(nombre: string, edad: number, curso: string) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.curso = curso;
+        constructor(nombre: string, edad: number, curso: string) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.curso = curso;
+        }
+
+        mostrarDatos(): string {
+            return `
+                <p><strong>Nombre:</strong> ${this.nombre}</p>
+                <p><strong>Edad:</strong> ${this.edad}</p>
+                <p><strong>Curso:</strong> ${this.curso}</p>
+            `;
+        }
     }
 
-    // Método para mostrar los datos del alumno
-    mostrarDatos(): string {
-        return `Nombre: ${this.nombre}<br>Edad: ${this.edad}<br>Curso: ${this.curso}`;
+    function mostrarDatosAlumno(): void {
+        const alumno = new Alumno("Pedro López", 18, "1CFSJ");
+
+        const resultadoDiv = document.getElementById("resultado");
+
+        if (resultadoDiv) {
+            resultadoDiv.innerHTML = alumno.mostrarDatos();
+        } else {
+            console.error("No se encontró el elemento 'resultado'.");
+        }
     }
-}
 
-// Función que crea un alumno y muestra sus datos
-function mostrarDatosAlumno(): void {
-    // Crear una instancia de la clase Alumno con los datos especificados
-    const alumno = new Alumno("Pedro López", 18, "1CFSJ");
-
-    // Obtener el div donde se mostrarán los datos
-    const resultadoDiv = <HTMLDivElement>document.getElementById("resultado");
-
-    // Mostrar los datos del alumno en el div
-    resultadoDiv.innerHTML = alumno.mostrarDatos();
-}
+    const botonMostrar = document.getElementById("mostrar-datos-alumno");
+    botonMostrar?.addEventListener("click", mostrarDatosAlumno);
+});

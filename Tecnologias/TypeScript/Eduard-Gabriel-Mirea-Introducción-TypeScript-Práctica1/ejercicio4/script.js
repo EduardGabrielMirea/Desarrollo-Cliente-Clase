@@ -1,23 +1,25 @@
-// Clase Alumno
-var Alumno = /** @class */ (function () {
-    // Constructor para inicializar las propiedades
-    function Alumno(nombre, edad, curso) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.curso = curso;
+document.addEventListener("DOMContentLoaded", function () {
+    var Alumno = /** @class */ (function () {
+        function Alumno(nombre, edad, curso) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.curso = curso;
+        }
+        Alumno.prototype.mostrarDatos = function () {
+            return "\n                <p><strong>Nombre:</strong> ".concat(this.nombre, "</p>\n                <p><strong>Edad:</strong> ").concat(this.edad, "</p>\n                <p><strong>Curso:</strong> ").concat(this.curso, "</p>\n            ");
+        };
+        return Alumno;
+    }());
+    function mostrarDatosAlumno() {
+        var alumno = new Alumno("Pedro López", 18, "1CFSJ");
+        var resultadoDiv = document.getElementById("resultado");
+        if (resultadoDiv) {
+            resultadoDiv.innerHTML = alumno.mostrarDatos();
+        }
+        else {
+            console.error("No se encontró el elemento 'resultado'.");
+        }
     }
-    // Método para mostrar los datos del alumno
-    Alumno.prototype.mostrarDatos = function () {
-        return "Nombre: ".concat(this.nombre, "<br>Edad: ").concat(this.edad, "<br>Curso: ").concat(this.curso);
-    };
-    return Alumno;
-}());
-// Función que crea un alumno y muestra sus datos
-function mostrarDatosAlumno() {
-    // Crear una instancia de la clase Alumno con los datos especificados
-    var alumno = new Alumno("Pedro López", 18, "1CFSJ");
-    // Obtener el div donde se mostrarán los datos
-    var resultadoDiv = document.getElementById("resultado");
-    // Mostrar los datos del alumno en el div
-    resultadoDiv.innerHTML = alumno.mostrarDatos();
-}
+    var botonMostrar = document.getElementById("mostrar-datos-alumno");
+    botonMostrar === null || botonMostrar === void 0 ? void 0 : botonMostrar.addEventListener("click", mostrarDatosAlumno);
+});
